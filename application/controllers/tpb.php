@@ -2,12 +2,12 @@
 class tpb extends CI_Controller{
     public function index(){
         //alamat API JSON
-        $api = 'http://localhost:8080/tpb2/api/header';
+        $api = 'http://localhost/tpb2/api/header';
         
         $get = file_get_contents($api);
         if ($get === false){
             //handle error
-            redirect('filter');
+            redirect('tpb/filter');
         }else {
             $dataj['judul'] = 'List TPB Unit2';
             $data = json_decode($get, true);
@@ -21,7 +21,7 @@ class tpb extends CI_Controller{
 
     public function filter(){
         //alamat API JSON
-        $api = 'http://localhost:8080/tpb2/api/header';
+        $api = 'http://localhost/tpb2/api/header';
 
         $nomorPeb =$this->input->post('nomorPeb');
         $tahun =$this->input->post('tahun');
